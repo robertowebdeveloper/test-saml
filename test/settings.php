@@ -11,7 +11,7 @@ $settingsInfo = array(
     'strict' => true,
 
     // Enable debug mode (to print errors)
-    'debug' => false,
+    'debug' => true,
 
     // Set a BaseURL to be used instead of try to guess
     // the BaseURL of the view that process the SAML Message.
@@ -22,7 +22,8 @@ $settingsInfo = array(
     // Service Provider Data that we are deploying
     'sp' => array(
         // Identifier of the SP entity  (must be a URI)
-        'entityId' => 'eni-gamindo-st',
+        #'entityId' => 'eni-gamindo-st',
+        'entityId' => $spBaseUrl.'/' . $directory . '/metadata.php',
         // Specifies info about where and how the <AuthnResponse> message MUST be
         // returned to the requester, in this case our SP.
         'assertionConsumerService' => array(
