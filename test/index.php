@@ -137,10 +137,12 @@ if (isset($_SESSION['samlUserdata'])) {
     echo '<p><a href="?slo" >Logout</a></p>';
 } else {
     echo parseHtml('
-        <div class="box">
-            <a href="?sso">Login</a>
-            <a href="?sso2">Login and access with attrs</a>
-        </div>
+        <main>
+            <div class="box">
+                <a href="?sso">Login</a>
+                <a href="?sso2">Login and access with attrs</a>
+            </div>
+        </main>
     ');
 }
 
