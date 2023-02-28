@@ -136,6 +136,18 @@ if (isset($_SESSION['samlUserdata'])) {
 
     echo '<p><a href="?slo" >Logout</a></p>';
 } else {
-    echo '<p><a href="?sso" >Login</a></p>';
-    echo '<p><a href="?sso2" >Login and access to attrs.php page</a></p>';
+    echo parseHtml('
+        <div class="box">
+            <a href="?sso">Login</a>
+            <a href="?sso2">Login and access with attrs</a>
+        </div>
+    ');
+}
+
+
+
+function parseHtml(string $html): string
+{
+    $template = file_get_contents(__DIR__ . '/template.html');
+    return str_replace("#*placeholder*#",$html,$template);
 }
