@@ -13,7 +13,7 @@ require_once dirname(__DIR__) . '/_toolkit_loader.php';
 require_once 'settings.php';
 
 $auth = new OneLogin_Saml2_Auth($settingsInfo);
-
+print_r($spBaseUrl);
 if (isset($_GET['sso'])) {
     $auth->login();
 
@@ -138,8 +138,8 @@ if (isset($_SESSION['samlUserdata'])) {
 } else {
     echo parseHtml('
         <div class="box">
-            <a href="./?sso">Login</a>
-            <a href="./?sso2">Login and access with attrs</a>
+            <a href="?sso">Login</a>
+            <a href="?sso2">Login and access with attrs</a>
         </div>
     ');
 }
