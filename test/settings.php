@@ -1,8 +1,9 @@
 <?php
 
 $spBaseUrl = 'http://ec2-15-160-109-130.eu-south-1.compute.amazonaws.com';
+$directory = "test";
 
-$settings = array(
+$settingsInfo = array(
     // If 'strict' is True, then the PHP Toolkit will reject unsigned
     // or unencrypted messages if it expects them signed or encrypted
     // Also will reject the messages if not strictly follow the SAML

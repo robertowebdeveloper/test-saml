@@ -8,11 +8,11 @@ ini_set('display_errors', 'On');
 
 session_start();
 
-require_once dirname(__DIR__).'/_toolkit_loader.php';
+require_once dirname(__DIR__) . '/_toolkit_loader.php';
 
 require_once 'settings.php';
 
-$auth = new OneLogin_Saml2_Auth($settings);
+$auth = new OneLogin_Saml2_Auth($settingsInfo);
 
 if (isset($_GET['sso'])) {
     $auth->login();
@@ -26,7 +26,7 @@ if (isset($_GET['sso'])) {
     # exit();
 
 } else if (isset($_GET['sso2'])) {
-    $returnTo = $spBaseUrl.'/demo1/attrs.php';
+    $returnTo = $spBaseUrl . '/' . $directory . '/attrs.php';
     $auth->login($returnTo);
 } else if (isset($_GET['slo'])) {
     $returnTo = null;
