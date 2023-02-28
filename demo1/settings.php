@@ -1,5 +1,7 @@
 <?php
 
+$spBaseUrl = 'http://ec2-15-160-109-130.eu-south-1.compute.amazonaws.com';
+
 $settings = array(
     // If 'strict' is True, then the PHP Toolkit will reject unsigned
     // or unencrypted messages if it expects them signed or encrypted
