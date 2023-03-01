@@ -13,7 +13,7 @@ require_once dirname(__DIR__) . '/_toolkit_loader.php';
 require_once 'settings.php';
 
 $auth = new OneLogin_Saml2_Auth($settingsInfo);
-print_r($spBaseUrl);
+
 if (isset($_GET['sso'])) {
     $auth->login();
 
