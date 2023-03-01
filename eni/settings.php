@@ -1,7 +1,7 @@
 <?php
 
-$spBaseUrl = 'http://ec2-15-160-109-130.eu-south-1.compute.amazonaws.com';
-$directory = "test";
+$spBaseUrl = 'https://sso.stage.gamindo.com';
+$directory = "saml/eni";
 
 $settingsInfo = array(
     // If 'strict' is True, then the PHP Toolkit will reject unsigned
@@ -28,7 +28,8 @@ $settingsInfo = array(
         // returned to the requester, in this case our SP.
         'assertionConsumerService' => array(
             // URL Location where the <Response> from the IdP will be returned
-            'url' => 'https://games.gamindo.com/enigoldenrules/stage',
+            # 'url' => 'https://games.gamindo.com/enigoldenrules/stage',
+            'url' => 'https://sso.stage.gamindo.com/games/eni',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-POST binding only
@@ -67,8 +68,8 @@ $settingsInfo = array(
 
         // Usually x509cert and privateKey of the SP are provided by files placed at
         // the certs folder. But we can also provide them with the following parameters
-        'x509cert' => __DIR__ . "/../certs/sp/cert.cer",
-        'privateKey' => __DIR__ . "/../certs/sp/key.pem",
+        'x509cert' => __DIR__ . "/../certs/eni/cert.cer",
+        'privateKey' => __DIR__ . "/../certs/eni/key.pem",
 
         /*
          * Key rollover
@@ -106,7 +107,7 @@ $settingsInfo = array(
             'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
         ),
         // Public x509 certificate of the IdP
-        'x509cert' => file_get_contents(__DIR__ . "/../certs/x509.cert"),
+        'x509cert' => file_get_contents(__DIR__ . "/../certs/eni/x509.cert"),
         /*
          *  Instead of use the whole x509cert you can use a fingerprint in
          *  order to validate the SAMLResponse, but we don't recommend to use
