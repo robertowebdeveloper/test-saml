@@ -97,7 +97,7 @@ $settingsInfo = array(
         // SLO endpoint info of the IdP.
         'singleLogoutService' => array(
             // URL Location of the IdP where the SP will send the SLO Request
-            'url' => '',
+            'url' => 'https://login.microsoftonline.com/c16e514b-893e-4a01-9a30-b8fef514a650/saml2',
             // URL location of the IdP where the SP SLO Response will be sent (ResponseLocation)
             // if not set, url for the SLO Request will be used
             'responseUrl' => '',

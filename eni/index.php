@@ -5,9 +5,6 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-
-session_start();
-
 require_once dirname(__DIR__) . '/_toolkit_loader.php';
 
 require_once 'settings.php';
