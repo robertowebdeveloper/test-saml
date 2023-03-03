@@ -69,7 +69,7 @@ if (isset($_GET['sso'])) {
 
         $response = new SimpleXMLElement($samlResponse);
         $arr = json_decode(json_encode($response),true);
-        print_r($arr);die;
+        echo "<pre>";print_r($arr);echo "</pre>";die;
         $arr = $response->Assertion->AttributeStatement->Attribute->attributes();
         print_r($arr);
         foreach ($arr as $k=>$v) {
