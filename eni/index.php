@@ -68,7 +68,12 @@ if (isset($_GET['sso'])) {
         $samlResponse = base64_decode($_POST["SAMLResponse"]);
 
         $response = new SimpleXMLElement($samlResponse);
-        echo "<pre>";print_r($response);echo "</pre>";die;
+        $arr = $response->Assertion->AttributeStatement->Attribute;
+        foreach ($arr as $k=>$v) {
+            print_r($k ." => " .$v);
+            echo "<hr>";
+        }
+        echo "<pre>";print_r($response->Assertion->AttributeStatement->Attribute);echo "</pre>";die;
     }
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
