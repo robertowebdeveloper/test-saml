@@ -1,6 +1,6 @@
 <?php
 
-$spBaseUrl = 'https://sso.stage.gamindo.com';
+$spBaseUrl = 'https://stage.sso.gamindo.com';
 $directory = "saml/eni";
 
 $settingsInfo = array(
@@ -29,7 +29,7 @@ $settingsInfo = array(
         'assertionConsumerService' => array(
             // URL Location where the <Response> from the IdP will be returned
             # 'url' => 'https://games.gamindo.com/enigoldenrules/stage',
-            'url' => 'https://stage.sso.gamindo.com/games/eni/',
+            'url' => 'https://stage.sso.gamindo.com/games/eni/?acs',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-POST binding only

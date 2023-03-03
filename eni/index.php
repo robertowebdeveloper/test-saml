@@ -60,8 +60,8 @@ if (isset($_GET['sso'])) {
     # header('Location: ' . $sloBuiltUrl);
     # exit();
 
-#} else if (isset($_GET['acs'])) {
-} else if (isset($_POST['SAMLResponse'])) {
+} else if (isset($_GET['acs'])) {
+#} else if (isset($_POST['SAMLResponse'])) {
     /*
     if (!isset($_POST["SAMLResponse"])) {
         echo "<p>SAMLResponse is not present.</p>";
