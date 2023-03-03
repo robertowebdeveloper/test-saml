@@ -137,6 +137,7 @@ if (isset($_SESSION['samlUserdata'])) {
         <div class="box">
             <a href="?sso">Login</a>
             <a href="?sso2">Login and access with attrs</a>
+            <a href="?slo">Logout</a>
         </div>
     ');
 }
