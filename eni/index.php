@@ -119,6 +119,8 @@ if (isset($_GET['sso'])) {
                 <td>' . $userId . '</td>
             </tr>
         </table>';
+
+        die;
     }
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
