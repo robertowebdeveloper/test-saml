@@ -61,7 +61,11 @@ if (isset($_GET['sso'])) {
     # exit();
 
 } else if (isset($_GET['acs'])) {
-    echo "<pre>";print_r($_POST);echo "</pre>";
+    $samlResponse = base64_decode($_POST["SAMLResponse"]);
+
+    echo "<pre>";print_r($samlResponse);echo "</pre>";
+
+
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
         $requestID = $_SESSION['AuthNRequestID'];
     } else {
