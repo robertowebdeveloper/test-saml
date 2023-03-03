@@ -93,7 +93,18 @@ if (isset($_GET['sso'])) {
             }
         }
 
-        echo '<table style="width: 600px; border-collapse:collapse; border:1px solid #333;">
+        echo '<style>
+            table {
+                width: 600px;
+                border-collapse: collapse;
+            }
+            table td, table th {
+                padding: 12px;
+                border: 1px solid #333;
+            }
+        </style>';
+
+        echo '<table>
             <tr>
                 <td>Nome:</td>
                 <td>' . $name . '</td>
