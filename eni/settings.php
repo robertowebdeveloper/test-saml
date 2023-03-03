@@ -17,7 +17,7 @@ $settingsInfo = array(
     // the BaseURL of the view that process the SAML Message.
     // Ex. http://sp.example.com/
     //     http://example.com/sp/
-    'baseurl' => $spBaseUrl,# . '/' . $directory,
+    'baseurl' => $spBaseUrl, # . '/' . $directory,
 
     // Service Provider Data that we are deploying
     'sp' => array(
@@ -29,7 +29,7 @@ $settingsInfo = array(
         'assertionConsumerService' => array(
             // URL Location where the <Response> from the IdP will be returned
             # 'url' => 'https://games.gamindo.com/enigoldenrules/stage',
-            'url' => $spBaseUrl . '/' . $directory,
+            'url' => $spBaseUrl . '/' . $directory . '?acs',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-POST binding only

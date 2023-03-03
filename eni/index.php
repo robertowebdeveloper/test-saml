@@ -60,17 +60,16 @@ if (isset($_GET['sso'])) {
     # header('Location: ' . $sloBuiltUrl);
     # exit();
 
-#} else if (isset($_GET['acs'])) {
-} else if (isset($_POST['SAMLResponse'])) {
-    /*
+} else if (isset($_GET['acs'])) {
+#} else if (isset($_POST['SAMLResponse'])) {
     if (!isset($_POST["SAMLResponse"])) {
         echo "<p>SAMLResponse is not present.</p>";
     } else {
         $samlResponse = base64_decode($_POST["SAMLResponse"]);
 
         $response = new SimpleXMLElement($samlResponse);
-        print_r($response);
-    }*/
+        print_r($response);die;
+    }
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
         $requestID = $_SESSION['AuthNRequestID'];
