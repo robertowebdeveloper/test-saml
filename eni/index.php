@@ -68,7 +68,7 @@ if (isset($_GET['sso'])) {
         $samlResponse = base64_decode($_POST["SAMLResponse"]);
 
         $response = new SimpleXMLElement($samlResponse);
-        $arr = $response->Assertion->AttributeStatement->Attribute;
+        $arr = $response->Assertion->AttributeStatement->Attribute->attributes();
         print_r($arr);
         foreach ($arr as $k=>$v) {
             print_r($k ." => " .$v);
