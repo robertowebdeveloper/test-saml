@@ -70,6 +70,7 @@ if (isset($_GET['sso'])) {
         $response = new SimpleXMLElement($samlResponse);
         print_r($response);
     }*/
+    print_r($_POST);
 
     $_POST["RelayState"] .= "?acs";
 
