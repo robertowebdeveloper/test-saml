@@ -69,6 +69,7 @@ if (isset($_GET['sso'])) {
 
         $response = new SimpleXMLElement($samlResponse);
         $arr = $response->Assertion->AttributeStatement->Attribute;
+        print_r($arr);
         foreach ($arr as $k=>$v) {
             print_r($k ." => " .$v);
             echo "<hr>";
