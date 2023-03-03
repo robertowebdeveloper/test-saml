@@ -29,7 +29,7 @@ $settingsInfo = array(
         'assertionConsumerService' => array(
             // URL Location where the <Response> from the IdP will be returned
             # 'url' => 'https://games.gamindo.com/enigoldenrules/stage',
-            'url' => 'https://stage.sso.gamindo.com/games/eni/?acs',
+            'url' => 'https://stage.sso.gamindo.com/games/eni/',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-POST binding only
