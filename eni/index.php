@@ -68,7 +68,7 @@ if (isset($_GET['sso'])) {
         $samlResponse = base64_decode($_POST["SAMLResponse"]);
 
         $response = new SimpleXMLElement($samlResponse);
-        print_r($response);die;
+        echo "<pre>";print_r($response);echo "</pre>";die;
     }
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {

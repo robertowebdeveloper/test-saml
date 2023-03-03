@@ -22,7 +22,8 @@
         "ext-openssl": "*",
         "ext-dom": "*",
         "ext-mcrypt": "*",
-        "ext-zlib": "*"
+        "ext-zlib": "*",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
