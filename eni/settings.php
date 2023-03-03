@@ -17,7 +17,7 @@ $settingsInfo = array(
     // the BaseURL of the view that process the SAML Message.
     // Ex. http://sp.example.com/
     //     http://example.com/sp/
-    'baseurl' => $spBaseUrl . '/games/eni',
+    'baseurl' => $spBaseUrl . '/games/eni/?acs',
 
     // Service Provider Data that we are deploying
     'sp' => array(
