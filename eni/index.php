@@ -61,7 +61,14 @@ if (isset($_GET['sso'])) {
     # exit();
 
 } else if (isset($_GET['acs'])) {
-#} else if (isset($_POST['SAMLResponse'])) {
+
+    $name = null;
+    $username = null;
+    $email = null;
+    $username = null;
+    $company = null;
+    $userId = null;
+
     if (!isset($_POST["SAMLResponse"])) {
         echo "<p>SAMLResponse is not present.</p>";
     } else {
@@ -69,14 +76,49 @@ if (isset($_GET['sso'])) {
 
         $response = new SimpleXMLElement($samlResponse);
         $arr = json_decode(json_encode($response),true);
-        echo "<pre>";print_r($arr);echo "</pre>";die;
-        $arr = $response->Assertion->AttributeStatement->Attribute->attributes();
-        print_r($arr);
-        foreach ($arr as $k=>$v) {
-            print_r($k ." => " .$v);
-            echo "<hr>";
+
+        foreach ($arr["Assertion"]["AttributeStatement"]["Attribute"] as $attribute) {
+            if (stripos($attribute["@attributes"]["Name"], '/identity/claims/givenname') !== false) {
+                $name = $attribute["AttributeValue"];
+            } else if (stripos($attribute["@attributes"]["Name"], '/identity/claims/surname') !== false) {
+                $surname = $attribute["AttributeValue"];
+            } else if (stripos($attribute["@attributes"]["Name"], '/identity/claims/emailaddress') !== false) {
+                $email = $attribute["AttributeValue"];
+            } else if (stripos($attribute["@attributes"]["Name"], '/identity/claims/name') !== false) {
+                $username = $attribute["AttributeValue"];
+            } else if ($attribute["@attributes"]["Name"] == "company") {
+                $company = $attribute["AttributeValue"];
+            } else if ($attribute["@attributes"]["Name"] == "UserID") {
+                $userId = $attribute["AttributeValue"];
+            }
         }
-        echo "<pre>";print_r($response->Assertion->AttributeStatement->Attribute);echo "</pre>";die;
+
+        echo '<table style="width: 600px; border-collapse:collapse; border:1px solid #333;">
+            <tr>
+                <td>Nome:</td>
+                <td>' . $name . '</td>
+            </tr>
+            <tr>
+                <td>Cognome:</td>
+                <td>' . $surname . '</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>' . $email . '</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>' . $username . '</td>
+            </tr>
+            <tr>
+                <td>Company:</td>
+                <td>' . $company . '</td>
+            </tr>
+            <tr>
+                <td>UserID:</td>
+                <td>' . $userId . '</td>
+            </tr>
+        </table>';
     }
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
