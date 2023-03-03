@@ -61,10 +61,17 @@ if (isset($_GET['sso'])) {
     # exit();
 
 } else if (isset($_GET['acs'])) {
-    $samlResponse = base64_decode($_POST["SAMLResponse"]);
+    /*
+    if (!isset($_POST["SAMLResponse"])) {
+        echo "<p>SAMLResponse is not present.</p>";
+    } else {
+        $samlResponse = base64_decode($_POST["SAMLResponse"]);
 
-    echo "<pre>";print_r($samlResponse);echo "</pre>";
+        $response = new SimpleXMLElement($samlResponse);
+        print_r($response);
+    }*/
 
+    $_POST["RelayState"] .= "?acs";
 
     if (isset($_SESSION) && isset($_SESSION['AuthNRequestID'])) {
         $requestID = $_SESSION['AuthNRequestID'];
